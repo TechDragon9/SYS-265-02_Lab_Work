@@ -2,7 +2,7 @@
 # Author: Aaron
 # Status: In progress
 
-#!/bin/bash/
+#!/bin/bash
 
 echo Starting $0 please wait a moment.
 
@@ -13,8 +13,15 @@ if [[ $1 == "" ]]; then
 fi
 
 # add a new user to system
-adduser $1
-usermod -aG sshd $1
+sudo adduser -m -d /home/$1 -s /bin/bash $1
 
-# add Public key (either from curl or local)
 
+# add Public key (copied form repo)
+sudo mkdir /home/$1/.ssh
+sudo cp SYS-265-02_Lab_Work/linux/public-keys/id_rsa.pub /home/$1/.ssh/authorized_keys
+sudo chmod 700 /home/$1/.ssh
+sudo chmod 600 /home/$1/.ssh/authorized_keys
+sudo chown -R $1:$1 /home/$1/.ssh
+
+# Ending script
+echo Ending $0.
