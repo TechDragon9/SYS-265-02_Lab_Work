@@ -1,1 +1,1 @@
-$ HOSTNAME
+mgmt01-aaron
