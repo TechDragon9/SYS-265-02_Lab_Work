@@ -13,8 +13,7 @@ if [[ $1 == "" ]]; then
 fi
 
 # add a new user to system
-sudo adduser -m -d /home/$1 -s /bin/bash $1
-
+sudo adduser $1
 
 # add Public key (copied form repo)
 sudo mkdir /home/$1/.ssh
